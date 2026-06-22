@@ -1,5 +1,10 @@
 # SNowMelt — ServiceNow node-log guest-access hunter
 
+Disclosure: This was built using Claude but tested against real logs
+
+I used this to accelerate analysis of node logs in response to the June 2026 ServiceNow incident: 
+https://trust.servicenow.com/notifications/1205429e-fea3-4cbf-b37b-8cd3a4e07aef
+
 End-to-end tool: point it at a node log file or a tree of them and it discovers
 the client IP set, cleans it (quarantining every exclusion for review), parses
 guest transactions into one normalised record, classifies what was served vs
@@ -131,6 +136,8 @@ Drops are recorded with `occurrences`, `appeared_as_source`, and a sample line.
 
 ## Notes and limitations
 
+- REST logging or lack thereof will hinder what you can correlate from other logs and tables.
+- This does not crosscheck against transaction logs, syslog, or sysevent logs from SNOW.
 - Record unit is one physical log line; logical records wrapped across lines
   would need a splitting pre-stage.
 - `/$sp.do` is a POST; its page id is not in the logged URL, so some renders are
