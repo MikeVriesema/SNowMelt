@@ -1,4 +1,4 @@
-# SNowMelt — ServiceNow node-log guest-access hunter
+# SNowMelt - ServiceNow node-log guest-access hunter
 
 Disclosure: This was built using Claude but tested against real logs
 
